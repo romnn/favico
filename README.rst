@@ -20,7 +20,7 @@ favico
 
 """"""""
 
-Your short description here. `romnn.github.io/favico <https://romnn.github.io/favico>`_
+Python library to generate the perfect favicons for every device.
 
 .. code-block:: console
 
@@ -29,6 +29,17 @@ Your short description here. `romnn.github.io/favico <https://romnn.github.io/fa
 .. code-block:: python
 
     import favico
+
+Installation
+-------------
+
+favico uses `ImageMagick <https://imagemagick.org/index.php>`_ to generate the favicons.
+
+For ubuntu, you can simply install libmagicwand-dev like this:
+
+.. code-block: console
+
+    $ apt-get install libmagickwand-dev 
 
 Development
 -----------

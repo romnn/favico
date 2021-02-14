@@ -26,4 +26,6 @@ m2r = "*"
 bump2version = "*"
 
 [packages]
+pyperclip = "*"
+Wand = "*"
 favico = {path = ".", editable = true}

@@ -6,12 +6,16 @@ import typing
 
 import click
 
+from favico.favico import generate
+
 
 @click.command()
-def main(args: typing.Optional[str] = None) -> int:
+@click.argument("image", type=click.Path(exists=True))
+@click.argument("output", type=click.Path(exists=False))
+@click.option("-b", "--base-url", type=str)
+def main(image: str, output: str, base_url: typing.Optional[str]) -> int:
     """Console script for favico."""
-    click.echo("Replace this message by putting your code into favico.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+    generate(image, output, base=base_url or "/")
     return 0
 
 
