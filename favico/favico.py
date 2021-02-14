@@ -59,36 +59,35 @@ def generate(_image: PathLike, _output: PathLike, base: str = "/") -> None:
     # make sure the output dir exists
     output.mkdir(parents=True, exist_ok=True)
 
-    if False:
-        with Image(width=32, height=32, background=Color("white")) as ico:
-            with Image(filename=image, background=Color("white")) as img:
-                for size in [16, 32, 48, 64]:
-                    print("Processing favicon.ico (%dx%d)" % (size, size))
-                    with img.clone() as i:
-                        i.interpolate_method = "nearest"
-                        i.alpha_channel = False
-                        # i.resize(size, size, filter="point")
-                        i.transform(resize="%dx%d^" % (size, size))
-                        i.crop(width=size, height=size, gravity="center")
-                        i.quantize(256, None, 0, False, False)
-                        ico.sequence.append(i)
-                ico.save(filename=output / "favicon.ico")
+    with Image(width=32, height=32, background=Color("white")) as ico:
+        with Image(filename=image, background=Color("white")) as img:
+            for size in [16, 32, 48, 64]:
+                print("Processing favicon.ico (%dx%d)" % (size, size))
+                with img.clone() as i:
+                    i.interpolate_method = "nearest"
+                    i.alpha_channel = False
+                    # i.resize(size, size, filter="point")
+                    i.transform(resize="%dx%d^" % (size, size))
+                    i.crop(width=size, height=size, gravity="center")
+                    i.quantize(256, None, 0, False, False)
+                    ico.sequence.append(i)
+            ico.save(filename=output / "favicon.ico")
 
-            for size in [57, 60, 72, 76, 114, 120, 144, 152, 180]:
-                print("Processing apple icon (%dx%d)" % (size, size))
-                convert(image, size, output / ("apple-icon-%dx%d.png" % (size, size)))
+        for size in [57, 60, 72, 76, 114, 120, 144, 152, 180]:
+            print("Processing apple icon (%dx%d)" % (size, size))
+            convert(image, size, output / ("apple-icon-%dx%d.png" % (size, size)))
 
-            for size in [36, 48, 72, 96, 114, 192]:
-                print("Processing android icon (%dx%d)" % (size, size))
-                convert(image, size, output / ("android-icon-%dx%d.png" % (size, size)))
+        for size in [36, 48, 72, 96, 114, 192]:
+            print("Processing android icon (%dx%d)" % (size, size))
+            convert(image, size, output / ("android-icon-%dx%d.png" % (size, size)))
 
-            for size in [16, 32, 96]:
-                print("Processing favicon (%dx%d)" % (size, size))
-                convert(image, size, output / ("favicon-%dx%d.png" % (size, size)))
+        for size in [16, 32, 96]:
+            print("Processing favicon (%dx%d)" % (size, size))
+            convert(image, size, output / ("favicon-%dx%d.png" % (size, size)))
 
-            for size in [70, 144, 150, 310]:
-                print("Processing ms icon (%dx%d)" % (size, size))
-                convert(image, size, output / ("ms-icon-%dx%d.png" % (size, size)))
+        for size in [70, 144, 150, 310]:
+            print("Processing ms icon (%dx%d)" % (size, size))
+            convert(image, size, output / ("ms-icon-%dx%d.png" % (size, size)))
 
     # print usage
     templated = usage % tuple([base] * 15)
