@@ -93,7 +93,10 @@ def generate(_image: PathLike, _output: PathLike, base: str = "/") -> None:
     templated = usage % tuple([base] * 14)
     print("")
     print("To use the favicons, paste this into the <head> of your website.")
-    print("We already copied it into your clipboard!")
+    try:
+        pyperclip.copy(templated)
+        print("We already copied it into your clipboard!")
+    except pyperclip.PyperclipException:
+        pass
     print("")
-    pyperclip.copy(templated)
     print(templated)

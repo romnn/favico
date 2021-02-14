@@ -6,7 +6,7 @@ import typing
 
 import click
 
-from favico.favico import generate
+from favico import generate
 
 
 @click.command()
