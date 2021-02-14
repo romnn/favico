@@ -45,7 +45,8 @@ usage = """<link rel="apple-touch-icon" sizes="57x57" href="%sapple-icon-57x57.p
 <link rel="icon" type="image/png" sizes="96x96" href="%sfavicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="%sfavicon-16x16.png">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="%sms-icon-144x144.png">"""
+<meta name="msapplication-TileImage" content="%sms-icon-144x144.png">
+<link rel="icon" href="%sfavicon.ico">"""
 
 
 def generate(_image: PathLike, _output: PathLike, base: str = "/") -> None:
@@ -90,7 +91,7 @@ def generate(_image: PathLike, _output: PathLike, base: str = "/") -> None:
                 convert(image, size, output / ("ms-icon-%dx%d.png" % (size, size)))
 
     # print usage
-    templated = usage % tuple([base] * 14)
+    templated = usage % tuple([base] * 15)
     print("")
     print("To use the favicons, paste this into the <head> of your website.")
     try:
