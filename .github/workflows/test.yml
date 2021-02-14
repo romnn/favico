@@ -16,7 +16,7 @@ jobs:
       with:
         extra_args: --all-files
 
-  test:
+  tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
