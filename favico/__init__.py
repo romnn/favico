@@ -6,6 +6,6 @@ from favico.favico import generate
 
 __author__ = """romnn"""
 __email__ = "contact@romnn.com"
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 __all__ = ["generate"]
