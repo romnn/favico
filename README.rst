@@ -41,6 +41,29 @@ For ubuntu, you can simply install libmagicwand-dev like this:
 
     $ apt-get install libmagickwand-dev 
 
+Usage
+------
+
+Using ``favico`` is super easy!
+You can either create favicons from an image or from a color:
+
+.. code-block: console
+
+    $ favico color "#f542ec" ./my-favicon-dir
+    $ favico image ./path/to/favicon/image.png ./my-favicon-dir
+
+Once you ran the command to test it out, you will see more info on how to
+add the favicons to your page (ready to copy paste!)
+
+By default, it is assumed that your website is deployed on the root ``/``.
+To template the favicons with another base path, just set the ``--base`` (``-b``) option:
+
+.. code-block: console
+
+    $ favico --base /prod/deployment/subdir color "#f542ec" ./my-favicon-dir
+    $ favico --base https://my-webside.com color "#f542ec" ./my-favicon-dir
+
+
 Development
 -----------
 
