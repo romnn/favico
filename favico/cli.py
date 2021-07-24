@@ -23,6 +23,7 @@ def main(
     normalize_urls: typing.Optional[bool],
 ) -> int:
     """Console script for favico."""
+    ctx.ensure_object(dict)
     ctx.obj[baseKey] = base
     ctx.obj[normalizeKey] = normalize_urls
     return 0
