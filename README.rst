@@ -37,7 +37,7 @@ favico uses `ImageMagick <https://imagemagick.org/index.php>`_ to generate the f
 
 For ubuntu, you can simply install libmagicwand-dev like this:
 
-.. code-block: console
+.. code-block:: console
 
     $ apt-get install libmagickwand-dev 
 
@@ -47,7 +47,7 @@ Usage
 Using ``favico`` is super easy!
 You can either create favicons from an image or from a color:
 
-.. code-block: console
+.. code-block:: console
 
     $ favico color "#f542ec" ./my-favicon-dir
     $ favico image ./path/to/favicon/image.png ./my-favicon-dir
@@ -58,7 +58,7 @@ add the favicons to your page (ready to copy paste!)
 By default, it is assumed that your website is deployed on the root ``/``.
 To template the favicons with another base path, just set the ``--base`` (``-b``) option:
 
-.. code-block: console
+.. code-block:: console
 
     $ favico --base /prod/deployment/subdir color "#f542ec" ./my-favicon-dir
     $ favico --base https://my-webside.com color "#f542ec" ./my-favicon-dir
